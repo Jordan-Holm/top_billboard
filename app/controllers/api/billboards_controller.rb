@@ -16,7 +16,8 @@ class Api::BillboardsController < ApplicationController
         if @billboard.save
             render json: @billboard
         else
-            render json { errors: @billboard.errors }, status: :unprocessable_entity
+            render json: { errors: @billboard.errors }, status: :unprocessable_entity
+        end
     end
 
     def update
@@ -24,7 +25,8 @@ class Api::BillboardsController < ApplicationController
         if @billboard.update(billboard_params)
             render json: @billboard
         else
-            render json: { errors: @billboard.errors } status: :unprocessable_entity
+            render json: { errors: @billboard.errors }, status: :unprocessable_entity
+        end
     end
 
     def destroy

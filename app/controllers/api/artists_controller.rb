@@ -16,7 +16,7 @@ class Api::ArtistsController < ApplicationController
         if @artist.save(artist_params)
             render json: @artist
         else
-            render json: { errors: @artist.errors } status: :unprocessable_entity
+            render json: { errors: @artist.errors }, status: :unprocessable_entity
         end 
     end
 
@@ -25,7 +25,7 @@ class Api::ArtistsController < ApplicationController
         if @artist.update(artist_params)
             render json: @artist
         else
-            render json: { errors: @artist.errors } status: :unprocessable_entity
+            render json: { errors: @artist.errors }, status: :unprocessable_entity
         end
     end
 
@@ -45,7 +45,7 @@ class Api::ArtistsController < ApplicationController
         end
 
         def set_billboard
-            @billboard = Billboard.find(params[:id])
+            @billboard = Billboard.find(params[:billboard_id])
         end
 
 end
